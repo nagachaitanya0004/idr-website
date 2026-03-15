@@ -44,7 +44,7 @@
         type="button"
         aria-expanded="false"
         aria-controls="site-menu"
-        aria-label="Toggle menu"
+        aria-label="Open menu"
       >
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -308,7 +308,7 @@
           <p>
             Use the form to register interest in training, partnerships, or talent deployment.
             Until a live backend is connected, you can also reach the team at
-            <a href="mailto:hello@idr.example">hello@idr.example</a>.
+            <a href="mailto:nagachaitanyaviyyapu@gmail.com">nagachaitanyaviyyapu@gmail.com</a>.
           </p>
 
           <div class="contact-points">
@@ -328,7 +328,17 @@
             </p>
           </div>
 
-          <form class="contact-form" id="contact-form" action="#">
+          <form
+            class="contact-form"
+            id="contact-form"
+            action="https://api.web3forms.com/submit"
+            method="POST"
+          >
+            <input
+              type="hidden"
+              name="access_key"
+              value="d55b401d-d243-4bcb-adfb-156b8c50b9bf"
+            >
             <div class="field-row">
               <div class="field">
                 <label for="name">Name</label>
@@ -367,9 +377,12 @@
               ></textarea>
             </div>
 
-            <button class="button" type="submit">Register Interest</button>
+            <div class="form-actions">
+              <button class="button button-light" type="reset">Reset</button>
+              <button class="button" type="submit">Register Interest</button>
+            </div>
             <p class="form-note" id="form-note" aria-live="polite">
-              Demo form ready for email integration.
+              Messages are now sent through the live contact form.
             </p>
           </form>
         </div>

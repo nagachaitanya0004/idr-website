@@ -2,13 +2,14 @@ const menuButton = document.querySelector("#menu-button");
 const menu = document.querySelector("#site-menu");
 const navLinks = document.querySelectorAll('#site-menu a[href^="#"]');
 const sections = document.querySelectorAll("section[id]");
-const form = document.querySelector("#contact-form");
-const formNote = document.querySelector("#form-note");
+const skipLink = document.querySelector(".skip-link");
+const mainContent = document.querySelector("#main-content");
 
 const setMenuState = (open) => {
   menu?.classList.toggle("is-open", open);
   menuButton?.classList.toggle("is-open", open);
   menuButton?.setAttribute("aria-expanded", String(open));
+  menuButton?.setAttribute("aria-label", open ? "Close menu" : "Open menu");
   document.body.classList.toggle("menu-open", open);
 };
 
@@ -18,7 +19,7 @@ const setActiveLink = (id) => {
     link.classList.toggle("is-active", isActive);
 
     if (isActive) {
-      link.setAttribute("aria-current", "page");
+      link.setAttribute("aria-current", "location");
     } else {
       link.removeAttribute("aria-current");
     }
@@ -41,10 +42,10 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-form?.addEventListener("submit", (event) => {
-  event.preventDefault();
-  form.reset();
-  formNote.textContent = "Thanks for reaching out. This demo form is ready for your email or backend integration.";
+skipLink?.addEventListener("click", () => {
+  requestAnimationFrame(() => {
+    mainContent?.focus();
+  });
 });
 
 if ("IntersectionObserver" in window) {
